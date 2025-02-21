@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://main_menu.gd" type="Script" id=1]
+[ext_resource path="res://eerie-ambience-largesca.mp3" type="AudioStream" id=2]
+[ext_resource path="res://2644235-qbikgqnf-v4.webp" type="Texture" id=3]
+[ext_resource path="res://2644234-kdszif53-v4.webp" type="Texture" id=4]
+[ext_resource path="res://2644236-qf4wjxvn-v4.webp" type="Texture" id=5]
+[ext_resource path="res://2644238-phtibtek-v4.webp" type="Texture" id=6]
+[ext_resource path="res://2644237-qiccnmer-v4.webp" type="Texture" id=8]
+[ext_resource path="res://FNaF_Main_Menu_Title_Text.webp" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="анимация фона" type="AnimatedSprite" parent="."]
+position = Vector2( 973, 543.5 )
+scale = Vector2( 2.405, 2.39333 )
+frames = SubResource( 17 )
+frame = 1
+playing = true
+
+[node name="FnaFMainMenuTitleText" type="Sprite" parent="."]
+position = Vector2( 367.75, 299 )
+scale = Vector2( 2.88806, 2.18868 )
+texture = ExtResource( 9 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 108.0
+margin_top = 595.0
+margin_right = 561.0
+margin_bottom = 670.0
+rect_pivot_offset = Vector2( 31, 0 )
+text = "START GAME"
+flat = true
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 130.0
+margin_top = 688.0
+margin_right = 532.0
+margin_bottom = 766.0
+text = "Options"
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 99.0
+margin_top = 759.0
+margin_right = 572.0
+margin_bottom = 893.0
+text = "Exit"
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -1, 1 )
+stream = ExtResource( 2 )
+volume_db = 6.97
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
